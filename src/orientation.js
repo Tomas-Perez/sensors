@@ -1,7 +1,7 @@
 if ('DeviceOrientationEvent' in window) {
     window.addEventListener('deviceorientation', deviceOrientationHandler, false);
 } else {
-    document.getElementById('logoContainer').innerText = 'Device Orientation API not supported.';
+    document.getElementById('orientationBody').innerText = 'La API de orientación no es soportada.';
 }
 
 function deviceOrientationHandler(eventData) {

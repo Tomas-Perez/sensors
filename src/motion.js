@@ -38,7 +38,7 @@ if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
 
     window.addEventListener('devicemotion', onDeviceMotion, false);
 } else {
-    document.getElementById('moApi').innerHTML = 'No Accelerometer & Gyroscope API available';
+    document.getElementById('moApi').innerHTML = 'No hay ninguna API disponible';
 }
 
 function accelerationHandler(acceleration, targetId) {

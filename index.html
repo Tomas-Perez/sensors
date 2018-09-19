@@ -3,94 +3,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Sensores</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Introducción a la computación</h2>
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Light sensor</a>
-                    </h4>
-                </div>
-                <div id="collapse1" class="panel-collapse collapse in">
-                    <p>Current light intensity is <b id="value">unknown</b>.</p>
-                    <div id="box"></div>
-                </div>
+    <div class="container my-5">
+    <h2 class="mb-4 text-center">Introducción a la computación</h2>
+    <div class="accordion" id="accordion">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0 text-center">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Sensor de luz
+                    </button>
+                </h5>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Accelerometer</a>
-                    </h4>
-                </div>
-                <div id="collapse2" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <table class="table table-striped table-bordered">
-                            <tr>
-                                <td>API used</td>
-                                <td id="moApi"></td>
-                            </tr>
-                            <tr>
-                                <td>linear acceleration (excl. gravity)</td>
-                                <td id="moAccel"></td>
-                            </tr>
-                            <tr>
-                                <td>acceleration incl. gravity</td>
-                                <td id="moAccelGrav"></td>
-                            </tr>
-                            <tr>
-                                <td>rotation rate</td>
-                                <td id="moRotation"></td>
-                            </tr>
-                            <tr>
-                                <td>interval (ms)</td>
-                                <td id="moInterval"></td>
-                            </tr>
-                        </table>
-
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Orientation</a>
-                    </h4>
-                </div>
-                <div id="collapse3" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <table class="table table-striped table-bordered">
-                            <tr>
-                                <td>Tilt Left/Right [gamma]</td>
-                                <td id="doTiltLR"></td>
-                            </tr>
-                            <tr>
-                                <td>Tilt Front/Back [beta]</td>
-                                <td id="doTiltFB"></td>
-                            </tr>
-                            <tr>
-                                <td>Direction [alpha]</td>
-                                <td id="doDirection"></td>
-                            </tr>
-                        </table>
-                        
-                        <div class="container" id="logoContainer">
-                            <img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_512.png" id="imgLogo">
-                        </div>
+    
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <div class="center-col">
+                        <p>La intensidad de luz actual es <b id="value">desconocida</b>.</p>
+                        <div id="box"></div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0 text-center">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                        aria-controls="collapseTwo">
+                        Movimiento
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <td>API usada</td>
+                            <td id="moApi"></td>
+                        </tr>
+                        <tr>
+                            <td>Aceleración lineal (excl. gravedad) [m/s^2]</td>
+                            <td id="moAccel"></td>
+                        </tr>
+                        <tr>
+                            <td>Aceleración incl. gravedad [m/s^2]</td>
+                            <td id="moAccelGrav"></td>
+                        </tr>
+                        <tr>
+                            <td>Rotación [grad/s] </td>
+                            <td id="moRotation"></td>
+                        </tr>
+                        <tr>
+                            <td>Intervalo de muestreo [ms]</td>
+                            <td id="moInterval"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0 text-center">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                        aria-controls="collapseThree">
+                        Orientación
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body" id="orientationBody">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <td>Inclinación izquierda/derecha (alpha)</td>
+                            <td id="doTiltLR"></td>
+                        </tr>
+                        <tr>
+                            <td>Inclinación deltante/atrás (beta)</td>
+                            <td id="doTiltFB"></td>
+                        </tr>
+                        <tr>
+                            <td>Dirección (alpha)</td>
+                            <td id="doDirection"></td>
+                        </tr>
+                    </table>
+                    
+                    <div class="container m-container" id="logoContainer">
+                        <img src="assets/austral_logo.png" id="imgLogo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h5 class="mb-0 text-center">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
+                        aria-controls="collapseFour">
+                        Magnetómetro
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div class="card-body" id="magBody">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <td>X</td>
+                            <td id="magX"></td>
+                        </tr>
+                        <tr>
+                            <td>Y</td>
+                            <td id="magY"></td>
+                        </tr>
+                        <tr>
+                            <td>Z</td>
+                            <td id="magZ"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="light.js"></script>
-    <script src="orientation.js"></script>
-    <script src="accelerometer.js"></script>
+    </div>
+    <div class="footer">
+        Boracchia - Mirra - Pedrozo - Perez Molina
+    </div>
+    <script src="src/libs/jquery.min.js"></script>
+    <script src="src/libs/bootstrap.bundle.min.js"></script>
+    <script src="src/light.js"></script>
+    <script src="src/orientation.js"></script>
+    <script src="src/motion.js"></script>
+    <script src="src/magnetometer.js"></script>
 </body>
 </html>
