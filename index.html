@@ -16,13 +16,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Collapsible Group 1</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Light sensor</a>
                     </h4>
                 </div>
                 <div id="collapse1" class="panel-collapse collapse in">
-                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.</div>
+                    <p>Current light intensity is <b id="value">unknown</b>.</p>
+                    <div id="box"></div>
                 </div>
             </div>
             <div class="panel panel-default">
@@ -85,13 +84,13 @@
                         <div class="container" id="logoContainer">
                             <img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_512.png" id="imgLogo">
                         </div>
-                        
-                        <script src="orientation.js"></script>
-                        <script src="accelerometer.js"></script>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="light.js"></script>
+    <script src="orientation.js"></script>
+    <script src="accelerometer.js"></script>
 </body>
 </html>
