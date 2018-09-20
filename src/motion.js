@@ -41,24 +41,50 @@ if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
     document.getElementById('moApi').innerHTML = 'No hay ninguna API disponible';
 }
 
-function accelerationHandler(acceleration, targetId) {
-    const x = acceleration.x && acceleration.x.toFixed(3);
-    const y = acceleration.y && acceleration.y.toFixed(3);
-    const z = acceleration.z && acceleration.z.toFixed(3)
+let handleAcceleration = true;
+let handleRotation = true;
+let handleInterval = true;
+const pollingInterval = 1000;
 
-    const info = `[X: ${x}, Y: ${y}, Z: ${z}]`
-    document.getElementById(targetId).innerHTML = info;
+function accelerationHandler(acceleration, targetId) {
+    if(handleAcceleration){
+        const x = acceleration.x && acceleration.x.toFixed(3);
+        const y = acceleration.y && acceleration.y.toFixed(3);
+        const z = acceleration.z && acceleration.z.toFixed(3)
+
+        const info = `[X: ${x}, Y: ${y}, Z: ${z}]`
+        document.getElementById(targetId).innerHTML = info;
+
+        handleAcceleration = false;
+        setTimeout(() => {
+            handleAcceleration = true;
+        }, pollingInterval);
+    }
 }
 
 function rotationHandler(rotation) {
-    const alpha = rotation.alpha && rotation.alpha.toFixed(3);
-    const beta = rotation.beta && rotation.beta.toFixed(3);
-    const gamma = rotation.gamma && rotation.gamma.toFixed(3);
+    if(handleRotation){
+        const alpha = rotation.alpha && rotation.alpha.toFixed(3);
+        const beta = rotation.beta && rotation.beta.toFixed(3);
+        const gamma = rotation.gamma && rotation.gamma.toFixed(3);
 
-    const info = `[Alpha: ${alpha}, Beta: ${beta}, Gamma: ${gamma}]`
-    document.getElementById("moRotation").innerHTML = info;
+        const info = `[Alpha: ${alpha}, Beta: ${beta}, Gamma: ${gamma}]`
+        document.getElementById("moRotation").innerHTML = info;
+
+        handleRotation = false;
+        setTimeout(() => {
+            handleRotation = true;
+        }, pollingInterval);
+    }
 }
 
 function intervalHandler(interval) {
-    document.getElementById("moInterval").innerHTML = interval;
+    if(handleInterval){
+        document.getElementById("moInterval").innerHTML = interval;
+
+        handleInterval = false;
+        setTimeout(() => {
+            handleInterval = true;
+        }, pollingInterval);
+    }
 }
