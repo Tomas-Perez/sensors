@@ -3,6 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <script src="src/libs/leaflet/leaflet.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
@@ -125,6 +127,33 @@
                 </div>
             </div>
         </div>
+        <div class="card">
+            <div class="card-header" id="headingFive">
+                <h5 class="mb-0 text-center">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
+                        aria-controls="collapseFive">
+                        Geolocalización
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                <div class="card-body" id="geoBody">
+                    <div class="center-col">
+                        <table class="table table-striped table-bordered">
+                            <tr>
+                                <td>Longitud</td>
+                                <td id="geoLon"></td>
+                            </tr>
+                            <tr>
+                                <td>Latitud</td>
+                                <td id="geoLat"></td>
+                            </tr>
+                        </table>
+                        <div class="mt-4" id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     </div>
     <div class="footer">
@@ -136,5 +165,6 @@
     <script src="src/orientation.js"></script>
     <script src="src/motion.js"></script>
     <script src="src/magnetometer.js"></script>
+    <script src="src/geolocation.js"></script>
 </body>
 </html>

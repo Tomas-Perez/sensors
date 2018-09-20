@@ -7,7 +7,7 @@ if ('LinearAccelerationSensor' in window && 'Gyroscope' in window) {
         if (lastReadingTimestamp) {
             intervalHandler(Math.round(accelerometer.timestamp - lastReadingTimestamp));
         }
-        lastReadingTimestamp = accelerometer.timestamp
+        lastReadingTimestamp = accelerometer.timestamp;
         accelerationHandler(accelerometer, 'moAccel');
     });
     accelerometer.start();
@@ -50,9 +50,9 @@ function accelerationHandler(acceleration, targetId) {
     if(handleAcceleration){
         const x = acceleration.x && acceleration.x.toFixed(3);
         const y = acceleration.y && acceleration.y.toFixed(3);
-        const z = acceleration.z && acceleration.z.toFixed(3)
+        const z = acceleration.z && acceleration.z.toFixed(3);
 
-        const info = `X: ${x}<br>Y: ${y}<br>Z: ${z}`
+        const info = `X: ${x}<br>Y: ${y}<br>Z: ${z}`;
         document.getElementById(targetId).innerHTML = info;
 
         handleAcceleration = false;
@@ -68,7 +68,7 @@ function rotationHandler(rotation) {
         const beta = rotation.beta && rotation.beta.toFixed(3);
         const gamma = rotation.gamma && rotation.gamma.toFixed(3);
 
-        const info = `Alpha: ${alpha}<br>Beta: ${beta}<br>Gamma: ${gamma}`
+        const info = `Alpha: ${alpha}<br>Beta: ${beta}<br>Gamma: ${gamma}`;
         document.getElementById("moRotation").innerHTML = info;
 
         handleRotation = false;

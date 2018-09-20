@@ -48,3 +48,8 @@ body{
     background: black;
     color: white;
 }
+
+#map{
+    height: 300px;
+    width: 300px;
+}

@@ -1,20 +1,33 @@
-var target = document.getElementById('target');
-var watchId;
+const map = L.map('map').fitWorld();
 
-function appendLocation(location, verb) {
-    verb = verb || 'updated';
-    var newLocation = document.createElement('p');
-    newLocation.innerHTML = 'Location ' + verb + ': <a href="https://maps.google.com/maps?&z=15&q=' + location.coords.latitude + '+' + location.coords.longitude + '&ll=' + location.coords.latitude + '+' + location.coords.longitude + '" target="_blank">' + location.coords.latitude + ', ' + location.coords.longitude + '</a>';
-    target.appendChild(newLocation);
+
+L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    title: 'google-maps'
+}).addTo(map);
+
+let marker;
+let set = false;
+
+function handleLocation(location, verb) {
+    if(!set){
+        const latLng = L.latLng(location.coords.latitude, location.coords.longitude);
+
+        marker = L.marker(latLng).addTo(map);
+        map.fitBounds(latLng.toBounds(400));
+        map.setZoom(20);
+        set = true;
+    } 
+    document.getElementById('geoLat').innerHTML = location.coords.latitude;
+    document.getElementById('geoLon').innerHTML = location.coords.longitude;
 }
 
 if ('geolocation' in navigator) {
-    document.getElementById('askButton').addEventListener('click', function () {
-        navigator.geolocation.getCurrentPosition(function (location) {
-            appendLocation(location, 'fetched');
-        });
-        watchId = navigator.geolocation.watchPosition(appendLocation);
+    navigator.geolocation.getCurrentPosition(function (location) {
+        handleLocation(location, 'fetched');
     });
+    navigator.geolocation.watchPosition(handleLocation);
 } else {
-    target.innerText = 'La API de localización no es soportada';
+    document.getElementById('geoBody').innerText = 'La API de localización no es soportada';
 }

@@ -28,7 +28,7 @@ if ("ondevicelight" in window) {
 }
 
 
-function map(input, input_start, input_end, output_start, output_end) {
+function mapValues(input, input_start, input_end, output_start, output_end) {
     return output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start);
 }
 
@@ -38,5 +38,5 @@ function luxToColorMap(value){
     const minLux = 0;
     const maxLux = 1000;
 
-    return map(value, minLux, maxLux, minColor, maxColor);
+    return mapValues(value, minLux, maxLux, minColor, maxColor);
 }
