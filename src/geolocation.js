@@ -17,8 +17,9 @@ function reset() {
 function handleLocation(location, verb) {
     if(!set){
         const latLng = L.latLng(location.coords.latitude, location.coords.longitude);
-        marker = L.marker(latLng).addTo(map);
-        map.setView(latLng, 18);
+        if (marker) marker.setLatLng(latLng);
+        else marker = L.marker(latLng).addTo(map);
+        map.setView(latLng, 15);
         map.invalidateSize();
         set = true;
     } 
