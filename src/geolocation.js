@@ -10,13 +10,16 @@ L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
 let marker;
 let set = false;
 
+function reset() {
+    set = false;
+}
+
 function handleLocation(location, verb) {
     if(!set){
         const latLng = L.latLng(location.coords.latitude, location.coords.longitude);
-
         marker = L.marker(latLng).addTo(map);
-        map.fitBounds(latLng.toBounds(400));
-        map.setZoom(20);
+        map.setView(latLng, 18);
+        map.invalidateSize();
         set = true;
     } 
     document.getElementById('geoLat').innerHTML = location.coords.latitude;

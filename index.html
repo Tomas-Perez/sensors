@@ -1,12 +1,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/leaflet.css" />
     <script src="src/libs/leaflet/leaflet.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/leaflet.css" />
     <title>Document</title>
 </head>
 <body>
@@ -21,7 +21,6 @@
                     </button>
                 </h5>
             </div>
-    
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                     <div class="center-col">
@@ -130,7 +129,7 @@
         <div class="card">
             <div class="card-header" id="headingFive">
                 <h5 class="mb-0 text-center">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
+                    <button class="btn btn-link collapsed" onclick="reset();"type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
                         aria-controls="collapseFive">
                         Geolocalización
                     </button>
@@ -149,7 +148,7 @@
                                 <td id="geoLat"></td>
                             </tr>
                         </table>
-                        <div class="mt-4" id="map"></div>
+                        <div class="mt-5" id="map"></div>
                     </div>
                 </div>
             </div>
